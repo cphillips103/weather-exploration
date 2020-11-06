@@ -38,7 +38,8 @@ ORDER BY year;
 
 ## Initial Analysis
 
-The Global data was analyzed using Python Programming Language using Jupyter Notebook.
+The Global data was analyzed using Python Programming Language using Jupyter Notebook. Temperatures are in Celsius.
+
 Python Code
 
 
