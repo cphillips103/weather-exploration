@@ -1,9 +1,9 @@
-## Name: Christopher Phillips
-## Date: November 4, 2020
-## Country: United States
+Name: Christopher Phillips
+Date: November 4, 2020
+Country: United States
 
 
-# Udacity Data Analysis Nanodegree Weather Trends Project:
+## Udacity Data Analysis Nanodegree Weather Trends Project:
 
 
 ## Exploring Weather Trends
