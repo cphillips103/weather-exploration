@@ -81,7 +81,7 @@ fig.show()
 ```
 
 
-![Global Avg Temp Dataframe](https://github.com/cphillips103/weather-exploration/images/table_global_avg_temp.png)
+![Global Avg Temp Dataframe](https://github.com/cphillips103/weather-exploration/blob/main/images/table_global_avg_temp.png)
 
 
 ```python
@@ -101,7 +101,7 @@ fig2.show()
 ```
 
 
-![NYC Avg Temp Dataframe](https://github.com/cphillips103/weather-exploration/images/table_NYC_avg_temp.png)
+![NYC Avg Temp Dataframe](https://github.com/cphillips103/weather-exploration/blob/main/images/table_NYC_avg_temp.png)
 
 
 ```python
@@ -123,7 +123,7 @@ fig3.show()
 ```
 
 
-![NYC vs Global Avg Temp Dataframe](https://github.com/cphillips103/weather-exploration/images/table_NYC_vs_glob_avg_temp.png)
+![NYC vs Global Avg Temp Dataframe](https://github.com/cphillips103/weather-exploration/blob/main/images/table_NYC_vs_glob_avg_temp.png)
 
 
 ```python
@@ -138,7 +138,7 @@ plt.show()
 ```
 
 
-![Global Avg Temp Graph](https://github.com/cphillips103/weather-exploration/images/globalavgtemp.png)
+![Global Avg Temp Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/globalavgtemp.png)
 
 
 ```python
@@ -160,7 +160,7 @@ plt.show()
 ```
 
 
-![NYC Avg Temp Graph](https://github.com/cphillips103/weather-exploration/images/NYCavgtemp.png)
+![NYC Avg Temp Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/NYCavgtemp.png)
 
 
 ```python
@@ -209,7 +209,7 @@ plt.show()
 ```
 
 
-![Avg Ann Temp MA Graph](https://github.com/cphillips103/weather-exploration/images/AvgAnnTempMA.png)
+![Avg Ann Temp MA Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/AvgAnnTempMA.png)
 
 
 ```python
@@ -246,7 +246,7 @@ plt.show()
 ```
 
 
-![NYC vs Global Ann Temp Graph](https://github.com/cphillips103/weather-exploration/images/globvsNYCavgtemp.png)
+![NYC vs Global Ann Temp Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/globvsNYCavgtemp.png)
 
 
 ```python
