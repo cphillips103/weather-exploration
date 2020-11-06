@@ -260,6 +260,6 @@ plt.show()
 
 ```python
 ## Future thoughts:
-I would be interesting to look at seasonality variances and ocean surface temperatures
+It would be interesting to look at seasonality variances and ocean surface temperatures
 vs Global land and total Global temperatures.
 ```
