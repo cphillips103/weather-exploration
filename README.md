@@ -1,6 +1,6 @@
-# Name: Christopher Phillips
-# Date: November 4, 2020
-# Country: United States
+## Name: Christopher Phillips
+## Date: November 4, 2020
+## Country: United States
 
 
 # Udacity Data Analysis Nanodegree Weather Trends Project:
@@ -18,6 +18,7 @@ A Udacity workspace with access to SQL data tables was provided.
 
 SQL Queries were used to download (CSV) files that contain yearly average temperature for ‘New York City’ and also the global average temperatures.
 
+```
 /*
 SQL Code used to download global temperature data by year.
 */
@@ -32,7 +33,7 @@ SELECT year, city, country, avg_temp
 FROM city_data
 WHERE city IN ('New York')
 ORDER BY year;
-
+```
 
 
 ## Initial Analysis
