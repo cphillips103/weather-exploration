@@ -154,12 +154,12 @@ plt.legend()
 plt.xlabel("Year")
 plt.ylabel("Temperature (°C)") 
 plt.title("Average Annual Temperature for Global and New York City")
-plt.savefig('images/NYCavgtemp.png', dpi=100)
+plt.savefig('images/Glob_NYC_MA_temp.png', dpi=100)
 plt.show()
 ```
 
 
-![NYC vs Global Ann Temp Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/gGlob_NYC_MA_temp.png)
+![NYC vs Global Ann Temp Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/Glob_NYC_MA_temp.png)
 
 
 ```python
@@ -184,7 +184,7 @@ ax2.legend()
 ax2.set_title("10 Year Moving Averages Global and New York City")
 ax2.set_xlabel("Year")
 ax2.set_ylabel("Temperature (°C)") 
-plt.savefig('images/AvgAnnTempMA.png', dpi=100)
+plt.savefig('images/Raw_MA_Temp.png', dpi=100)
 plt.show()
 ```
 
