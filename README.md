@@ -263,3 +263,17 @@ plt.show()
 It would be interesting to look at seasonality variances and ocean surface temperatures
 vs Global land and total Global temperatures.
 ```
+
+
+```python
+#Credits:
+#Global and New York City Average Annual Temperatures from Udacity via Kaggle and Berkeley Earth:
+#        "https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data"
+```
+
+
+```python
+#Ploty charting documentation: "https://plotly.com/python/"
+#My GitHub Repository "https://github.com/cphillips103/weather-exploration"
+#Udacity Data Analyst Program: "https://www.udacity.com/course/data-analyst-nanodegree--nd002"
+```
