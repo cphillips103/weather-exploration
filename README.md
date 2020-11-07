@@ -1,6 +1,6 @@
-Name: Christopher Phillips
-Date: November 4, 2020
-Country: United States
+### Name: Christopher Phillips
+### Date: November 4, 2020
+### Country: United States
 
 
 ## Udacity Data Analysis Nanodegree Weather Trends Project:
@@ -56,13 +56,13 @@ import plotly.graph_objects as go
 ```python
 # Importing data files
 #Global Average Temperature data by year
-global_avg_temp = pd.read_csv(r'C:\Users\ZoilaFlores\OneDrive\Documents\Programming\Python\weather_analysis\global_results.csv')
+global_avg_temp = pd.read_csv('global_results.csv')
 
 #City Average Temperature data by year
-city_avg_temp = pd.read_csv(r'C:\Users\ZoilaFlores\OneDrive\Documents\Programming\Python\weather_analysis\New_York_results.csv')
+city_avg_temp = pd.read_csv('New_York_results.csv')
 
 #Global vs City Average Temperature data by year 1750-2015
-glob_vs_city_avg_temp = pd.read_csv(r'C:\Users\ZoilaFlores\OneDrive\Documents\Programming\Python\weather_analysis\New_York_vs_global_results.csv')
+glob_vs_city_avg_temp = pd.read_csv('New_York_vs_global_results.csv')
 ```
 
 
@@ -129,150 +129,140 @@ fig3.show()
 
 
 ```python
-# Initial look at global average temperature data
-plt.plot(global_avg_temp['year'],global_avg_temp['avg_temp'],label='Global',color='lightcoral')
+#Moving Averages:
+#Rolling Average has been calculated to smooth out the data and
+#make it easier to observe the trends when presented
+#graphically.
+
+#Rolling Averages have been calculated for every 10 years
+#to each single data period.
+
+#Python was used for calculating the moving average using
+#the built in function "rolling" and "mean."
+
+#Calculation of moving averages to smooth out the data
+
+global_mov_avg = global_avg_temp['avg_temp'].rolling(window=10).mean()
+city_mov_avg = city_avg_temp['avg_temp'].rolling(window=10).mean()
+```
+
+```python
+#Line Chart for the data:
+plt.plot(city_avg_temp['year'],city_mov_avg,label='New York City 10 Yr MA', color='#4b0082')
+plt.plot(global_avg_temp['year'],global_mov_avg,label='Global 10 Yr MA', color='lightcoral')
 plt.legend()
 plt.xlabel("Year")
 plt.ylabel("Temperature (°C)") 
-plt.title("Global Average Temperature")
-plt.savefig('images/globalavgtemp.png', dpi=100)
-plt.show()
-```
-
-
-![Global Avg Temp Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/globalavgtemp.png)
-
-
-```python
-## Observation 1
-##For data available, after the early 1800's, Global average annual temperatures began to slowly rise.
-##After 1960-1980s, temperatures accelerated up to present years.
-```
-
-
-```python
-# Initial look at New York City average temperature data
-plt.plot(city_avg_temp['year'],city_avg_temp['avg_temp'],label='New York City', color='#4b0082')
-plt.legend()
-plt.xlabel("Year")
-plt.ylabel("Temperature (°C)") 
-plt.title("New York City Average Temperature")
+plt.title("Average Annual Temperature for Global and New York City")
 plt.savefig('images/NYCavgtemp.png', dpi=100)
 plt.show()
 ```
 
 
-![NYC Avg Temp Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/NYCavgtemp.png)
+![NYC vs Global Ann Temp Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/gGlob_NYC_MA_temp.png)
 
 
 ```python
-## Observation 2
-##New York City average annual tempertures remained flat from 1800 to the early 1900s.
-##Then from 1900s to the 1950, temperatures began to rise.
-##There was a short drop from 1960-1970s, but temperatures began to rise again up through today.
-```
-
-
-```python
-# Calculation of moving averages to smooth out the data
-global_mov_avg = global_avg_temp['avg_temp'].rolling(window=20).mean()
-global_mov_avg2 = global_avg_temp['avg_temp'].rolling(window=50).mean()
-city_mov_avg = city_avg_temp['avg_temp'].rolling(window=20).mean()
-city_mov_avg2 = city_avg_temp['avg_temp'].rolling(window=50).mean()
-```
-
-
-```python
-# Local Data is New York City
+#Two charts showing raw and smooth 10 year MA data
 fig, (ax1, ax2) = plt.subplots(1, 2, constrained_layout=True)
 fig.set_size_inches(18.5, 8.5)
-fig.suptitle('Average Annual Temperatures')
+fig.suptitle('Average Annual Temperatures Global and New York City')
 
 
 ax1.plot(global_avg_temp['year'],global_avg_temp['avg_temp'],label='Global',color='lightcoral')
 ax1.plot(city_avg_temp['year'],city_avg_temp['avg_temp'],label='New York City', color='#4b0082')
 
-ax2.plot(global_avg_temp['year'],global_mov_avg,label='Global 20 Yr MA')
-ax2.plot(global_avg_temp['year'],global_mov_avg2,label='Global 50 Yr MA')
+ax2.plot(global_avg_temp['year'],global_mov_avg,label='Global 10 Yr MA')
+ax2.plot(city_avg_temp['year'],city_mov_avg,label='New York City 10 Yr MA')
 
-ax2.plot(city_avg_temp['year'],city_mov_avg,label='New York City  20 Yr MA')
-ax2.plot(city_avg_temp['year'],city_mov_avg2,label='New York City 50 Yr MA')
 
 ax1.legend()
 ax1.set_xlabel("Year")
 ax1.set_ylabel("Temperature (°C)") 
-ax1.set_title("Global and New York City")
+ax1.set_title("Average Annual Temperatures Global and New York City")
 ax2.legend()
-ax2.set_title("Moving Averages")
+ax2.set_title("10 Year Moving Averages Global and New York City")
 ax2.set_xlabel("Year")
 ax2.set_ylabel("Temperature (°C)") 
 plt.savefig('images/AvgAnnTempMA.png', dpi=100)
 plt.show()
 ```
 
+![NYC vs Global Ann Temp Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/Raw_MA_Temp.png)
 
-![Avg Ann Temp MA Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/AvgAnnTempMA.png)
+
+```
+#Observations:
+
+*Looking at the initial charts, they show that average annual
+temperatures have been rising over the available data periods.
+
+*The Global temperatures started to increase in the 1800s,
+which coincides with the start of the industrial revolution.
+
+*On average, it appears that increases in average temperatures have
+accelerated since the 1970 period.
+
+*On average, New York City temperatures are slightly higher
+than Global temperatures.
+
+*As with Global temperatures, New York City temperatures have
+also been on the rise during the available data periods.
 
 
-```python
-## Observation 3
-##Comparing New York City to Global average annual temperatures, New York City is on average
-##1 to 4 degrees Celsius higher than average Global temperatures
-##
-##However, annual trends appear to be consistent between the Globe and New York City.
-##
 ##Notes regarding data sets. Data provided by the Berkley Project through Kaggle.
 ##Some early data periods are missing, creating large variances
-##in the global average annual temperatures.
+##in the Global average annual temperatures.
 ##
-##Through future research, the provided data is also for land temperatures only,
-##so global doesn't include ocean surface temperatures.
+##Through furture research, the provided data is also for land temperatures only,
+##so Global doesn't include ocean surface temperatures.
 ```
 
-
 ```python
-# Detailed look at New York City average temperature data vs the globe
-glob_vs_city_mov_avg = glob_vs_city_avg_temp['diff'].rolling(window=20).mean()
-glob_vs_city_mov_avg2 = glob_vs_city_avg_temp['diff'].rolling(window=50).mean()
+#Detailed look at New York City average temperature data vs the globe
+#Global vs New York City Average Annual Temperatures combined using excel based on the
+#individual Global and New York City CSV files.
+
+#Rolling mean created using Python built in functions "rolling" and "mean."
+glob_vs_city_mov_avg = glob_vs_city_avg_temp['diff'].rolling(window=10).mean()
+
 
 plt.plot(glob_vs_city_avg_temp['year'],glob_vs_city_avg_temp['diff'],label='New York City vs Global', color='#4b0082')
-plt.plot(glob_vs_city_avg_temp['year'],glob_vs_city_mov_avg,label='New York City vs Global 20 Yr MA', color='lightcoral')
-plt.plot(glob_vs_city_avg_temp['year'],glob_vs_city_mov_avg2,label='New York City vs Global 50 Yr MA', color='blue')
+plt.plot(glob_vs_city_avg_temp['year'],glob_vs_city_mov_avg,label='New York City vs Global 10 Yr MA', color='lightcoral')
 
 plt.legend()
 plt.xlabel("Year")
 plt.ylabel("Temperature (°C)") 
-plt.title("New York City vs Global Average Temperature")
+plt.title("New York City vs Global Average Annual Temperature")
 plt.savefig('images/globvsNYCavgtemp.png', dpi=100)
 plt.show()
 ```
 
-
 ![NYC vs Global Ann Temp Graph](https://github.com/cphillips103/weather-exploration/blob/main/images/globvsNYCavgtemp.png)
 
 
-```python
-## Observation 4
+```
+#Additioning Observation
 ##Overall, the variance between New York City reported average annual temperatures
 ##and the Global temperatures is within a narrow range of 1-2 degrees Celsius.
 ```
 
 
-```python
+```
 ## Future thoughts:
 It would be interesting to look at seasonality variances and ocean surface temperatures
 vs Global land and total Global temperatures.
 ```
 
 
-```python
+```
 #Credits:
 #Global and New York City Average Annual Temperatures from Udacity via Kaggle and Berkeley Earth:
 #        "https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data"
 ```
 
 
-```python
+```
 #Ploty charting documentation: "https://plotly.com/python/"
 #My GitHub Repository "https://github.com/cphillips103/weather-exploration"
 #Udacity Data Analyst Program: "https://www.udacity.com/course/data-analyst-nanodegree--nd002"
